@@ -1,6 +1,7 @@
 import sbt._
 import Keys._
 import PlayProject._
+import play.Project._
 
 object ApplicationBuild extends Build {
 
@@ -8,11 +9,11 @@ object ApplicationBuild extends Build {
     val appVersion      = "0.1-SNAPSHOT"
 
     val appDependencies = Seq(
-      "crud-module" % "crud-module_2.9.1" % "0.1-SNAPSHOT"
+      "crud-module" %% "crud-module" % "0.1-SNAPSHOT"
     )
 
-    val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(
-      resolvers += "local play repo" at "/home/k/opt/play20/framework/../repository/local/"
+    val main = play.Project(appName, appVersion, appDependencies).settings(
+      resolvers += "local play repo" at "/usr/local/Cellar/play/2.1.3/libexec/repository/local/"
     )
 
 }
